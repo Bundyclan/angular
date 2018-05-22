@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="houseForm" (ngSubmit) = "onSubmit()">
+      <div class="row">
+        <div class="col-xs-2">
+          <button 
+          type="submit" 
+          class="btn btn-success"
+          [disabled]="!houseForm.valid">Save</button>
+          <button 
+          type="button" 
+          class="btn btn-danger"
+          (click)="onCancel()"
+          >Cancel</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" 
+            id="name"
+            formControlName="name"
+            class="form-control"
+            >
+            <span 
+            *ngIf = "!houseForm.get('name').valid && houseForm.get('name').touched"
+            class="help-block"
+            >* Please, fill out this field!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="image">Image URL</label>
+              <input type="text" 
+              id="imagePath"
+              formControlName="imagePath"
+              class="form-control"
+              #imagePath>
+              <span 
+            *ngIf = "!houseForm.get('imagePath').valid && houseForm.get('imagePath').touched"
+            class="help-block"
+            >* Requires an image url of the house!</span>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <img [src]="imagePath.value" 
+            class="img-responsive"
+            style="width: 50%">
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" 
+              id="description"
+              formControlName="description"
+              class="form-control"
+              rows="6"></textarea>
+            </div>
+          </div>
+      </div>
+      
+
+
+    </form>
+  </div>
+</div>

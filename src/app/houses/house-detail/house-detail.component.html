@@ -1,0 +1,52 @@
+
+<div class="row " >
+    <div class="col-xs-12">
+      <img [src]="house.imagePath" alt=" {{ house.name }}" class="img-responsive img-rounded" style="max-width: 60%">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ house.name }}</h1>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <div 
+      class="btn-group"
+      appDropdown
+      >
+
+        <button mat-button [matMenuTriggerFor]="menu"> Edit House <span class="caret"></span> </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onEditHouse()">Edit house</button>
+          <button mat-menu-item (click)="onDeleteHouse()">Delete House</button>
+        </mat-menu>
+
+        <!-- Old version of dropdown -->
+        <!-- <button type="button" class="button btn-primary dropdown-toggle">
+          Manage house <span class="caret"></span> 
+        </button>
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer" (click)="onEditHouse()">Edit house</a></li>
+          <li><a style="cursor: pointer" (click)="onDeleteHouse()">Delete house</a></li>
+        </ul> -->
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="row well center-block" style="margin-right:40%" >
+    <div class="col-xs-12">
+      
+      <h4>Description</h4>{{house.description}}
+      <hr>
+      <p>Address: 445 Mount Eden Road, Mount Eden, Auckland </p>
+      <p>Type of House: Average House</p>
+      <p>Family Friendly: Yes</p>
+      
+      
+      
+    </div>
+  </div>

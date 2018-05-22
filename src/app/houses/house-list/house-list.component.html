@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button  mat-raised-button color="warn" (click)="onNewHouse()">New House</button>
+    </div>
+  </div>
+  <hr>
+  
+  <div class="row" id="houseList">
+    <div class="col-xs-12">
+      <app-house-item *ngFor="let houseEl of houses; let i = index" 
+      [house]="houseEl"
+      [index]="i"></app-house-item>
+    </div>
+  </div>
+  
+
+
+
+
