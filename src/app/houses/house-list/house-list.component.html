@@ -5,14 +5,15 @@
     <br>
     <hr>
     <div class="col-xs-12">
-      <input type="text" placeholder="Search...">
+      <!-- search input -->
+      <input type="text" placeholder="Search..." [(ngModel)]= "search">
     </div>
   </div>
   <hr>
   
   <div class="row" id="houseList">
     <div class="col-xs-12">
-      <app-house-item *ngFor="let houseEl of houses; let i = index" 
+      <app-house-item *ngFor="let houseEl of houses; let i = index | filter: search"  
       [house]="houseEl"
       [index]="i"></app-house-item>
     </div>

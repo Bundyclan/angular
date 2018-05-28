@@ -26,6 +26,8 @@ import { DataStorageService } from './shared/data-storage.service';
 import { SignupComponent } from './login/signup/signup.component';
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './login/auth-guard.service';
+import { FilterPipe } from './houses/house-list/filter.pipe';
+import { ShortenPipe } from './houses/house-list/house-item/shorten.pipe';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { AuthGuard } from './login/auth-guard.service';
     HouseStartComponent,
     DropdownDirective,
     HouseEditComponent,
-    SignupComponent
+    SignupComponent,
+    FilterPipe,
+    ShortenPipe
    
   ],
   imports: [

@@ -29,11 +29,12 @@ export class HouseListComponent implements OnInit {
     this.houses = this.houseService.getHouses();
   }
 
-  
 
   onNewHouse() {
     this.router.navigate( ['new'], {relativeTo:this.route});
   }
+
+  filteredName = '';
 
   ngOnDestroy ( ) {
     //this.subscription.unsubscribe();
