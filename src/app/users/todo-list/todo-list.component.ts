@@ -28,6 +28,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
+  //calling the actions with dispatch
   onSubmit() {
     this.ngRedux.dispatch({type: ADD_TODO, todo: this.model})
   }

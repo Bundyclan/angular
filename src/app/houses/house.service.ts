@@ -11,12 +11,15 @@ export class HouseService {
 
     private houses: House[] = [
         new House(0, 'Weekend House', 
-        'good holiday', 'https://cdn.trendir.com/wp-content/uploads/2016/06/Modern-house-in-Auckland-New-Zealand.jpg'
+        'good holiday location', 'https://cdn.trendir.com/wp-content/uploads/2016/06/Modern-house-in-Auckland-New-Zealand.jpg'
         ),
-        new House(1, 'Apartment', 'Who the f wanna live here anyway', 'https://images.adsttc.com/media/images/59a4/c624/b22e/389d/3e00/02a3/newsletter/MHA.JR_201708_038.jpg', 
+        new House(1, 'Apartment', 'Small cozy apartment text', 'https://images.adsttc.com/media/images/59a4/c624/b22e/389d/3e00/02a3/newsletter/MHA.JR_201708_038.jpg', 
        )
 
     ];
+
+
+    // sgethouses does not require an action as it only fetch data
 
     setHouses(houses: House[]) {
         this.houses = houses;

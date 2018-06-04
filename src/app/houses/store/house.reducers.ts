@@ -26,10 +26,16 @@ const initialState: State = {
     ]
 };
 
+
+
+
+//                                                   action is type of houseactions' house action (the export type, action type)
 export function houseReducer ( state = initialState, action: HouseActions.HouseActions ) {
+   // switch case, switching the action types
     switch (action.type) {
         case (HouseActions.SET_HOUSES):
             return {
+                // distributes all state properties 
                 ...state,
                 houses: [...action.payload]
             };
@@ -57,6 +63,7 @@ export function houseReducer ( state = initialState, action: HouseActions.HouseA
                 ...state, 
                 houses: oldHouses
             };
+        // returns default state iff not changed
         default:
             return state;
     }

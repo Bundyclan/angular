@@ -5,6 +5,7 @@ export interface AppState {
     auth: fromAuth.State
 }
 
+//                                     state type
 export const reducers: ActionReducerMap<AppState> = {
     auth: fromAuth.authReducer
 };

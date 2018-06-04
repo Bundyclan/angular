@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { House } from '../house.model';
 
-
+//                        unique identifiers for the actions
 export const SET_HOUSES = 'SET_HOUSES';
 export const ADD_HOUSE = 'ADD_HOUSE';
 export const UPDATE_HOUSE = 'UPDATE_HOUSE';
@@ -10,7 +10,10 @@ export const STORE_HOUSES = 'STORE_HOUSES';
 export const FETCH_HOUSES = 'FETCH_HOUSES';
 
 
+
+
 export class SetHouses implements Action {
+  // requires to register a type property
     readonly type = SET_HOUSES;
 
     constructor (public payload: House[]) {}
@@ -25,6 +28,7 @@ export class AddHouse implements Action {
 export class UpdateHouse implements Action {
     readonly type = UPDATE_HOUSE;
 
+        //  constructor to set payload easily, payload is converted into a json property
     constructor (public payload: {index: number, updatedHouse: House}) {}
 }
 
