@@ -8,6 +8,7 @@ import { HouseDetailComponent } from "./houses/house-detail/house-detail.compone
 import { HouseEditComponent } from "./houses/house-edit/house-edit.component";
 import { SignupComponent } from "./login/signup/signup.component";
 import { AuthGuard } from "./login/auth-guard.service";
+import { UserComponent } from "./users/user/user.component";
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
 
     ]},
     { path: 'users', component: UsersComponent},
+    { path: 'user', component: UserComponent },
     { path: 'signup', component: SignupComponent}
   ];
 

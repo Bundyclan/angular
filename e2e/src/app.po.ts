@@ -2,10 +2,27 @@ import { browser, by, element } from 'protractor';
 
 export class AppPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.get('/users');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getWelcomeText() {
+    return element(by.css('app-users h3')).getText();
   }
+
+  getAboutButton(){
+    return element(by.css('[routerlink="/about"]'));
+  }
+
+  getAboutText(){
+    return element(by.css('app-about h2')).getText();
+  }
+
+  getCreateButton(){
+    return element(by.id('submitTodo'));
+  }
+
+  getTodosText(){
+    return element(by.css('e2e-testing'));
+  }
+
 }

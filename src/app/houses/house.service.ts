@@ -10,10 +10,10 @@ export class HouseService {
     //houseSelected = new EventEmitter<House>();
 
     private houses: House[] = [
-        new House('Weekend House', 
+        new House(0, 'Weekend House', 
         'good holiday', 'https://cdn.trendir.com/wp-content/uploads/2016/06/Modern-house-in-Auckland-New-Zealand.jpg'
         ),
-        new House('Apartment', 'Who the f wanna live here anyway', 'https://images.adsttc.com/media/images/59a4/c624/b22e/389d/3e00/02a3/newsletter/MHA.JR_201708_038.jpg', 
+        new House(1, 'Apartment', 'Who the f wanna live here anyway', 'https://images.adsttc.com/media/images/59a4/c624/b22e/389d/3e00/02a3/newsletter/MHA.JR_201708_038.jpg', 
        )
 
     ];
@@ -30,24 +30,26 @@ export class HouseService {
     }
 
 
-    getHouse(id: number) {
-        return this.houses[id];
-    }
+    // getHouse(id: number) {
+    //     return this.houses[id];
+    // }
 
-    addHouse(house: House) {
-        this.houses.push(house);
-        this.housesChanged.next(this.houses.slice());
-    }
+    // addHouse(house: House) {
+    //     this.houses.push(house);
+    //     this.housesChanged.next(this.houses.slice());
+    // }
 
-    updateHouse(index: number, newHouse: House) {
-        this.houses[index] = newHouse;
-        this.housesChanged.next(this.houses.slice());
-    }
+    // updateHouse(index: number, newHouse: House) {
+    //     this.houses[index] = newHouse;
+    //     this.housesChanged.next(this.houses.slice());
+    // }
 
-    deleteHouse ( index: number) {
-        this.houses.splice(index, 1);
-        this.housesChanged.next(this.houses.slice());
-    }
+    // deleteHouse ( index: number) {
+    //     this.houses.splice(index, 1);
+    //     this.housesChanged.next(this.houses.slice());
+    // }
+
+    
 
     
 

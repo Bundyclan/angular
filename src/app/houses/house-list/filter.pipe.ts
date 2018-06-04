@@ -5,24 +5,6 @@ import { House } from '../house.model';
   name: 'filter'
 })
 
-// export class FilterPipe implements PipeTransform {
-
-//   transform(value: any, filterString: string, propName: string): any {
-//     if (value.length === 0 || filterString === '' ) {
-//       return value;
-//     }
-
-//     const resultArray = [];
-//     for (const item of value) {
-      
-//       if (item[propName] === filterString) {
-//         resultArray.push(item);
-//       }
-//     }
-
-//       return resultArray;
-//     } 
-      
 
     export class FilterPipe implements PipeTransform {
       transform( items: House[], args: string): any{
@@ -41,7 +23,7 @@ import { House } from '../house.model';
           }
           //return[-1];
         }
-        return
+        return items;
       }
 
   }

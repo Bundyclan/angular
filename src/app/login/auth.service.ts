@@ -1,7 +1,10 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 
+import * as fromApp from '../store/app.reducers';
+import * as AuthActions from './store/auth.actions';
    
 
 @Injectable()
@@ -9,12 +12,25 @@ import { Injectable } from '@angular/core';
 export class AuthService {
     token: string;
 
-    constructor(private router: Router){}
+    constructor(private router: Router, private store: Store<fromApp.AppState> ){}
 
 
 
     signupUser(email: string, password: string){
         firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(
+            user => {
+                this.store.dispatch(new AuthActions.Signup());
+                firebase.auth().currentUser.getIdToken()
+            .then(
+                (token: string) => {
+                    this.store.dispatch(new AuthActions.SetToken(token));
+                    //this.token = token
+                }
+            )
+
+            }
+        )
         .catch(
             error => console.log(error)
         )
@@ -24,11 +40,15 @@ export class AuthService {
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
              response => {
-            this.router.navigate(['/homes'])
+            this.store.dispatch(new AuthActions.Signin());
+            //this.router.navigate(['/homes']);
             //  console.log(response),
             firebase.auth().currentUser.getIdToken()
             .then(
-                (token: string) => this.token = token
+                (token: string) => {
+                    this.store.dispatch(new AuthActions.SetToken(token));
+                    //this.token = token
+                }
             )
         }
         ).catch(
@@ -39,8 +59,11 @@ export class AuthService {
     logout(){
         this.router.navigate(['/'])
         firebase.auth().signOut();
-        this.token = null;
+        // this.store.dispatch(new AuthActions.Logout());
+        //this.token = null;
     }
+
+    //No longer required due to redux
 
     getToken(){
         firebase.auth().currentUser.getIdToken()
@@ -50,7 +73,7 @@ export class AuthService {
         return this.token;
     }
 
-    isAuthenticated(){
-        return this.token != null;
-    }
+    // isAuthenticated(){
+    //     return this.token != null;
+    // }
 }

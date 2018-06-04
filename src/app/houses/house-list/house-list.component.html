@@ -13,7 +13,7 @@
   
   <div class="row" id="houseList">
     <div class="col-xs-12">
-      <app-house-item *ngFor="let houseEl of houses | filter: search; let i = index "
+      <app-house-item *ngFor="let houseEl of ( housesState | async ).houses | filter: search; let i = index "
       [house]="houseEl"
       [index]="i"></app-house-item>
     </div>

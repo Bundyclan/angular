@@ -1,16 +1,16 @@
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile><img src="https://i.imgur.com/JTMCFRW.jpg" 
     alt="loginImage" 
-    style="width: 100%"></mat-grid-tile>
+    style="width: 100%; margin-bottom: 50px;"></mat-grid-tile>
   
   <div>
      <mat-grid-tile>
-    <div class="example-container">
-
+    <div class="example-container" style="margin-bottom: 80px; margin-top: 20px">
+      <h4 id="welcome">Welcome!</h4>
       <app-signup></app-signup>
       <hr>
       
-      <form (ngSubmit)="onLogin(f)" #f="ngForm">
+      <form (ngSubmit)="onLogin(f)" #f="ngForm" id="loginForm" class="e2e-login">
           <div class="form-group">
             <label for="email">Login Email</label>
             <input type="email" id="loginEmail" name="email" ngModel class="form-control">
@@ -20,7 +20,7 @@
             <input type="password" id="loginPassword" name="password" ngModel  class="form-control">
           </div>
           <!-- <button mat-raised-button type="submit" >Login</button> -->
-          <button mat-raised-button type="submit">Login</button>
+          <button mat-raised-button type="submit" id="e2e-loginButton">Login</button>
       </form>
       
       
