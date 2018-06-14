@@ -8,19 +8,27 @@
           <ul class="nav navbar-nav">
             <ng-template [ngIf]="(authState | async).authenticated">
                 <li routerLinkActive="active" ><a routerLink="/homes" (click)="onFetchData()" >Homes</a></li>
-                <li routerLinkActive="active"><a routerLink="/users" >Users</a></li>
+                <!-- <li routerLinkActive="active"><a routerLink="/users" >Users</a></li> -->
+                <li routerLinkActive="active"><a class="glyphicon glyphicon-shopping-cart">Order</a></li>
             </ng-template>
               
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-             <li><a style="cursor: pointer;" 
+          <ul class="nav navbar-nav navbar-right" *ngIf="(authState | async).authenticated">
+                <li>
+                    <div style="padding-top: 14px">Welcome user!</div>
+                </li>
+            <li>
+                <a class="glyphicon glyphicon-user" *ngIf="(authState | async).authenticated"></a>
+            </li>
+            <li>
+                <a style="cursor: pointer;" 
                 (click)="onLogout()"  
                 *ngIf="(authState | async).authenticated"> 
                 Logout</a> </li>
                 <li class="dropdown"
                 appDropdown
                 *ngIf="(authState | async).authenticated">
-                    <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+                    <a class="dropdown-toggle glyphicon glyphicon-cog" role="button">Manage <span class="caret"></span></a>
                         
                     <ul class="dropdown-menu">
                         <li><a (click)="onSaveData()">Saving Data</a></li>

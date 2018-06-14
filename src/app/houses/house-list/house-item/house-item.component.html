@@ -4,10 +4,12 @@ routerLinkActive="active"
     class="list-group-item clearfix" 
     >
       <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ house.name | uppercase }}</h4>
+        <h4 class="list-group-item-heading">{{ house.name | uppercase }} 
+        </h4>
         <p class="list-group-item-text">{{ house.description | shorten }}</p>
       </div>
       <span class="pull-right">
+          
         <img
         [src]="house.imagePath"
          alt="{{ house.name }}" 

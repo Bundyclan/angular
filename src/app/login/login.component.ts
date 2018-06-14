@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 
 import * as fromApp from '../store/app.reducers';
 import * as AuthActions from './store/auth.actions';
+import { SignupComponent } from './signup/signup.component';
 
 
 @Component({
@@ -15,13 +16,27 @@ import * as AuthActions from './store/auth.actions';
 })
 export class LoginComponent implements OnInit {
 
-  animal: string;
-  name: string;
+  email: string;
+  password: string;
 
   constructor(
     // private authService: AuthService 
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
+    //public dialog: MatDialog
   ) { }
+
+  // openDialog(): void {
+  //   let dialogRef = this.dialog.open(SignupComponent, {
+  //     width: '250px',
+  //     data: { name: this.email, animal: this.password }
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     this.email = result;
+  //   });
+  // }
+
 
   
   ngOnInit() {
